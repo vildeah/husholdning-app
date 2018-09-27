@@ -1,3 +1,3 @@
 let Core = (function() {
-return 1;
+return 2; //genialt
 }) ();
