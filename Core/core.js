@@ -1,3 +1,9 @@
 let Core = (function() {
-return 2; //genialt
+
+    return {
+        alterHeaderText: function () {
+           let header = document.getElementById('header__text');
+           header.innerHTML = 'Juhuu!';
+        },
+    }
 }) ();
