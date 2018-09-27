@@ -1,6 +1,51 @@
+ html {
+	box-sizing: border-box;
+}
+
+a {
+	color:white;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-decoration: none;
+	background: rgba(0,0,0,0.2);
+	padding:20px 5px;
+	display:inline-block;
+	width: 95%;
+	text-align: center;
+	transition: all 0.5s;
+}
  body {
  	background-color: coral;
  } 
+
+.wrapper {
+	max-width: 2000px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.nav ul {
+border:1px solid black;
+list-style: none;
+margin: 0;
+padding: 0;
+display:flex;
+
+}
+
+.sok {
+	align-content:left;
+	align-items:right;
+	display:inline-flex;
+}
+
+.nav li {
+	flex:3;
+}
+
+.nav .account {
+	flex:1;
+}
 
 
 
@@ -13,3 +58,25 @@
     color: white;
     text-align: center;
 }
+
+
+@media all and (max-width:1000px) {
+
+	.nav ul {
+	flex-wrap:wrap;
+	}
+
+	.nav li {
+	flex:1 1 50%;
+	}
+
+	.nav .social {
+		flex:1 1 25%;
+	}
+
+}
+
+@media all and (max-width:500px) {
+	.nav li {
+		flex-basis:100%;
+	}
