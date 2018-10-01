@@ -1,57 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Coorgi.com</title>
-	<meta charset="UTF-8">
-	<!-- css kode -->
-			<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<head>
+		<title>Coorgi.com</title>
+		<meta charset="UTF-8">
+		<!-- css kode -->
+				<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
-</head>
+	</head>
 
-<body>	
-	<div id="header__text">
-		<h3>
-			TEST COORGI TEST
-		</h3>
-	</div>
-<div class="wrapper">
+	<body>
+		<div id="coorgi-dash" class="container-fluid">
+			<div class="row">
+				<div class="col-xl-12">
+					<nav class="navbar navbar-expand-lg navbar-light">
+						<span class="navbar-brand mb-0 h1">Coorgi</span>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 
-		<nav class="nav">
-		<ul>
-			<li><a href="index.html"><strong>Fremside</strong></a></li>
-			<li><a href="index.html">To-do-list</a></li>
-			<li><a href="index.html">Mine gjøremål</a></li>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<li class="account">
-			<a href="#"><font size="1">Gjest6454</font></a></li>
-			<li class="account">
-			<a href="logg_ut.html"><font size="1">Logg ut</font></a></li>
-			
-		</ul>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul id="main-navigation" class="navbar-nav mr-auto">
+								<li class="nav-item active">
+									<a id="main-navigation__bulletin" class="nav-link" href="#">Oppslagstavle</a>
+								</li>
+								<li class="nav-item">
+									<a id="main-navigation__to-do" class="nav-link" href="#">Gjøremål</a>
+								</li>
+								<li class="nav-item">
+									<a id="main-navigation__shopping-list" class="nav-link" href="#">Handleliste</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div id="area__list">
+				<div id="area__bulletin" class="area area--active">
+					<div class="row">
+						<h1>Oppslagstavle</h1>
+					</div>
+				</div>
+				<div id="area__to-do" class="area">
+					<div class="row">
+						<h1>Gjøremål</h1>
+					</div>
+				</div>
+				<div id="area__shopping-list" class="area">
+					<div class="row">
+						<h1>Handleliste</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="core/core.js"></script>
+		<script type="text/javascript" src="Display/navigation.js"></script>
+	</body>
 
-
-<script type="text/javascript" src="core/core.js"></script>
-		<div class="sok">
-			<input type="text" size="21" maxlength="120">
-        	<a href="sokeresultater.html"><input type="submit" value="Søk"></a>
-        </div>
-     
-
-
-
-
-
-
-</body>
-<br>
+	<br>
 	<div class="footer" align="center">
-	<footer>
-		<p id="footer1">Postet av: Thomas Østrem Flisnes, Vilde Aamodt Huseby og Bendik Møller Aas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kontakt informasjon: <a href="mailto:Thomas@student.no" href="mailto:Vilde@student.no" href="mailto:Bendik@student.no">Thomas@student.no&nbsp;&nbsp;&nbsp;&nbsp;Vilde@student.no&nbsp;&nbsp;&nbsp;&nbsp;Bendik@student.no</a> </p>
-	<button type="button" onclick="document.getElementById('footer1').innerHTML = 'Bedrift telefon: 11111111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Åpningstider: 1111111 til 222222'">Mer Informasjon!</button>
-	<button type="button" class="btn btn-primary" onclick="Core.alterHeaderText()">Primary</button>
-	</footer>
+		<footer>
+			<p id="footer1">Postet av: Thomas Østrem Flisnes, Vilde Aamodt Huseby og Bendik Møller Aas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kontakt informasjon: <a href="mailto:Thomas@student.no" href="mailto:Vilde@student.no" href="mailto:Bendik@student.no">Thomas@student.no&nbsp;&nbsp;&nbsp;&nbsp;Vilde@student.no&nbsp;&nbsp;&nbsp;&nbsp;Bendik@student.no</a> </p>
+			<button type="button" onclick="document.getElementById('footer1').innerHTML = 'Bedrift telefon: 11111111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Åpningstider: 1111111 til 222222'">Mer Informasjon!</button>
+		</footer>
 	</div>
-
-
 </html>

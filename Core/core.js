@@ -1,3 +1,7 @@
+let Display = {};
+let Model= {};
+let ModelControllers = {};
+let ViewControllers = {};
 let Core = (function() {
 
     return {

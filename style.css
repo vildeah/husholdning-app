@@ -1,4 +1,18 @@
- html {
+/*Navigation*/
+.area {
+	display: none;
+}
+
+.area--active {
+	display: block!important;
+}
+
+.nav-item.active {
+	border-bottom: 0.15rem solid grey;
+}
+
+/*Misc*/
+html {
 	box-sizing: border-box;
 }
 
@@ -79,4 +93,6 @@ display:flex;
 @media all and (max-width:500px) {
 	.nav li {
 		flex-basis:100%;
-	}
+    }
+}
+
