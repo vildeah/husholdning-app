@@ -1,3 +1,36 @@
+/*Coorgi color scheme*/
+.coorgi-bg-light {
+	background-color: #dcc7aa;
+}
+
+.coorgi-bg-yellow {
+	background-color: #F7C331;
+}
+
+.coorgi-bg-orange {
+	background-color: #F7882F;
+}
+
+.coorgi-bg-dark {
+	background-color: #6B7A8F;
+}
+
+.coorgi-text-light {
+	color: #dcc7aa;
+}
+
+.coorgi-text-yellow {
+	color: #F7C331;
+}
+
+.coorgi-text-orange {
+	color: #F7882F;
+}
+
+.coorgi-text-dark {
+	color: #6B7A8F;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;
@@ -21,6 +54,10 @@
 	border-bottom: 0.15rem solid grey;
 }
 
+.nav-link {
+	font-weight: 400;
+}
+
 /*Misc*/
 html {
 	box-sizing: border-box;
@@ -38,9 +75,6 @@ a {
 	text-align: center;
 	transition: all 0.5s;
 }
- body {
- 	background-color: beige!important;
- } 
 
 .wrapper {
 	max-width: 2000px;
