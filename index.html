@@ -40,7 +40,7 @@
 			<div id="area__list">
 				<div id="area__bulletin" class="area area--active">
 					<div class="row">
-						<h1>Oppslagstavle</h1>
+						<h1 onclick="ViewControllers.TodoItems.print()">Oppslagstavle</h1>
 					</div>
 				</div>
 				<div id="area__to-do" class="area">
@@ -55,8 +55,22 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="core/core.js"></script>
+		<script type="text/javascript" src="Core/core.js"></script>
+		<script type="text/javascript" src="Core/testdata.js"></script>
+
 		<script type="text/javascript" src="Display/navigation.js"></script>
+
+		<script type="text/javascript" src="Model/properties/number.js"></script>
+		<script type="text/javascript" src="Model/properties/string.js"></script>
+		<script type="text/javascript" src="Model/properties/stringReadOnly.js"></script>
+
+		<script type="text/javascript" src="Model/abstract.js"></script>
+		<script type="text/javascript" src="Model/todoItem.js"></script>
+
+		<script type="text/javascript" src="Modelcontrollers/abstract.js"></script>
+		<script type="text/javascript" src="Modelcontrollers/todoItems.js"></script>
+
+		<script type="text/javascript" src="Viewcontrollers/todoItems.js"></script>
 	</body>
 
 </html>

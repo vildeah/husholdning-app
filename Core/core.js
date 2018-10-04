@@ -1,13 +1,17 @@
 let Display = {};
 let Model= {};
+Model.Properties = {};
 let ModelControllers = {};
 let ViewControllers = {};
 let Core = (function() {
 
+    let autoNumber = 1;
+
     return {
-        alterHeaderText: function () {
-           let header = document.getElementById('header__text');
-           header.innerHTML = 'Juhuu!';
-        },
+        generateAutoNumber: function() {
+            autoNumber++;
+            return autoNumber.toString();
+        }
     }
+
 }) ();
