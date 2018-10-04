@@ -1,3 +1,4 @@
+
 /*Coorgi color scheme*/
 .coorgi-bg-light {
 	background-color: #dcc7aa;
@@ -8,7 +9,7 @@
 }
 
 .coorgi-bg-orange {
-	background-color: #F7882F;
+	background-color: #F7882F!important;
 }
 
 .coorgi-bg-dark {
@@ -56,6 +57,12 @@
 
 .nav-link {
 	font-weight: 400;
+}
+
+/*Cards*/
+
+.card {
+	max-width: 18rem;
 }
 
 /*Misc*/
