@@ -1,10 +1,12 @@
 ViewControllers.TodoItems = (function() {
-
- //   console.log(cardsArea);
     return {
         renderCards: function() {
             let todoItems = ModelControllers.TodoItems.getAll();
             let cardsArea = document.getElementById('to-do__cards');
+            while (cardsArea.firstChild) {
+                cardsArea.removeChild(cardsArea.firstChild);
+            }
+           // console.log(cardsArea);
             for (let i = 0; i < todoItems.length; i++) {
                 let cardDiv = document.createElement('div');
                 cardDiv.classList.add('card', 'coorgi-bg-orange', 'text-white');
