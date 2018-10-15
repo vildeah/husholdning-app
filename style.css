@@ -1,11 +1,11 @@
 
 /*Coorgi color scheme*/
 .coorgi-bg-light {
-	background-color: #dcc7aa;
+	background-color: #dcc7aa!important;
 }
 
 .coorgi-bg-yellow {
-	background-color: #F7C331;
+	background-color: #F7C331!important;
 }
 
 .coorgi-bg-orange {
@@ -13,7 +13,27 @@
 }
 
 .coorgi-bg-dark {
-	background-color: #6B7A8F;
+	background-color: #6B7A8F!important;
+}
+
+.coorgi-card-0 {
+	background-color: #FFC895!important;
+}
+
+.coorgi-card-1 {
+	background-color: #FFBD82!important;
+}
+
+.coorgi-card-2 {
+	background-color: #FFAC62!important;
+}
+
+.coorgi-card-3 {
+	background-color: #FF9C42!important;
+}
+
+.coorgi-card-4 {
+	background-color: #FF800D!important;
 }
 
 .coorgi-text-light {
@@ -38,7 +58,7 @@
 	margin: 0px -15px 0px -15px;
 	padding-left:60px;
 	padding-right: 30px;
-	box-shadow: 0 1px 7px rgba(0,0,0,.05);
+	box-shadow: 0 20px 10px rgba(0,0,0,.05);
 	padding-bottom: 0;
 	padding-top: 5px;
 }
@@ -61,8 +81,12 @@
 
 /*Cards*/
 
-.card {
-	max-width: 18rem;
+.collapse-header {
+	color: white!important;
+}
+
+.card{
+	box-shadow: 0 20px 10px rgba(0,0,0,.05);
 }
 
 /*Misc*/

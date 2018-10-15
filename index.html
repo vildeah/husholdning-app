@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<title>Coorgi.com</title>
-		<meta charset="UTF-8">
-		<!-- css kode -->
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+		<link rel="stylesheet" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	</head>
 
 	<body class="coorgi-bg-light">
@@ -32,6 +32,9 @@
 								<li class="nav-item">
 									<a id="main-navigation__shopping-list" class="nav-link" href="#">Handleliste</a>
 								</li>
+								<li class="nav-item">
+									<a id="main-navigation__points" class="nav-link" href="#">Poengtavle</a>
+								</li>
 							</ul>
 						</div>
 					</nav>
@@ -40,19 +43,24 @@
 			<div id="area__list">
 				<div id="area__bulletin" class="area area--active">
 					<div class="row">
-						<h1 onclick="ViewControllers.TodoItems.print()">Oppslagstavle</h1>
+						<h1>Oppslagstavle</h1>
 					</div>
 				</div>
 				<div id="area__to-do" class="area">
-					<div class="row" style="margin-top: 5em">
-						<div class="col-xl-12">
-							<div id="to-do__cards" class="card-columns"></div>
+					<div class="row justify-content-center" style="margin-top: 5em">
+						<div class="col-lg-9">
+							<div id="accordion"></div>
 						</div>
 					</div>
 				</div>
 				<div id="area__shopping-list" class="area">
 					<div class="row">
 						<h1>Handleliste</h1>
+					</div>
+				</div>
+				<div id="area__points" class="area">
+					<div class="row">
+						<h1>Poengtavle</h1>
 					</div>
 				</div>
 			</div>
@@ -74,7 +82,9 @@
 
 		<script type="text/javascript" src="Viewcontrollers/todoItems.js"></script>
 
-	<!--	<script>lmdd.set(document.getElementById('markupID'),{optionsObject});</script> -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	</body>
 
 </html>

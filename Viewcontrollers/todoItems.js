@@ -2,60 +2,51 @@ ViewControllers.TodoItems = (function() {
     return {
         renderCards: function() {
             let todoItems = ModelControllers.TodoItems.getAll();
-            let cardsArea = document.getElementById('to-do__cards');
-            while (cardsArea.firstChild) {
-                cardsArea.removeChild(cardsArea.firstChild);
+            let accordion = document.getElementById('accordion');
+            while (accordion.firstChild) {
+                accordion.removeChild(accordion.firstChild);
             }
-           // console.log(cardsArea);
             for (let i = 0; i < todoItems.length; i++) {
                 let cardDiv = document.createElement('div');
-                cardDiv.classList.add('card', 'coorgi-bg-orange', 'text-white');
+
+                cardDiv.classList.add('card', 'coorgi-card-'+ todoItems[i].difficulty.get(), 'text-white');
                 
                 let cardHeader = document.createElement('div');
                 cardHeader.classList.add('card-header');
-                cardHeader.innerHTML = todoItems[i].points.get().toString() + ' poeng';
-                
+                cardHeader.setAttribute('id', 'heading' + i);
+
+                let h5 = document.createElement('h5');
+                h5.classList.add('mb-0');
+
+                let collapseBtn = document.createElement('button');
+                collapseBtn.classList.add('btn', 'btn-link', 'collapse-header');
+                collapseBtn.setAttribute('data-toggle', 'collapse');
+                collapseBtn.setAttribute('data-target', '#collapse' + i);
+                collapseBtn.setAttribute('aria-expanded', false);
+                collapseBtn.setAttribute('aria-controls', 'collapse'+ i);
+                collapseBtn.innerHTML = todoItems[i].name.get();
+           /*     let pointSpan = document.createElement('span');
+                pointSpan.innerHTML = todoItems[i].points.get().toString();
+                pointSpan.classList.add('float-right');*/
+
+               // collapseBtn.appendChild(pointSpan);
+                h5.appendChild(collapseBtn);
+                cardHeader.appendChild(h5);
+
+                let collapseDiv = document.createElement('div');
+                collapseDiv.classList.add('collapse');
+                collapseDiv.setAttribute('id', 'collapse' + i);
+                collapseDiv.setAttribute('aria-labelledby', 'heading' + i);
+                collapseDiv.setAttribute('data-parent', '#accordion');
+
                 let cardBody = document.createElement('div');
                 cardBody.classList.add('card-body');
-        
-                let cardTitle = document.createElement('h5');
-                cardTitle.classList.add('card-title');
-                cardTitle.innerHTML = todoItems[i].name.get();
-        
-                let cardSubtitle = document.createElement('h6');
-                cardSubtitle.classList.add('card-subtitle', 'mb-1', 'text-muted');
-                let subtitleText = '';
-                switch (todoItems[i].importance.get()) {
-                    case 0:
-                        subtitleText = 'Veldig lav prioritet';
-                        break;
-                    case 1:
-                        subtitleText = 'Lav prioritet';
-                        break;
-                    case 2:
-                        subtitleText = 'Middels prioritet';
-                        break;
-                    case 3:
-                        subtitleText = 'Høy prioritet';
-                        break;
-                    case 4:
-                        subtitleText = 'Veldig høy prioritet';
-                        break;
-                    default:
-                        subtitleText= 'Udefinert prioritet';
-                }
-                cardSubtitle.innerHTML = subtitleText;
-        
-                let cardText = document.createElement('p');
-                cardText.classList.add('card-text');
-                cardText.innerHTML = todoItems[i].description.get();
-        
-                cardBody.appendChild(cardTitle);
-                cardBody.appendChild(cardSubtitle);
-                cardBody.appendChild(cardText);
+                cardBody.innerHTML = todoItems[i].description.get();
+
+                collapseDiv.appendChild(cardBody);
                 cardDiv.appendChild(cardHeader);
-                cardDiv.appendChild(cardBody);
-                cardsArea.appendChild(cardDiv);
+                cardDiv.appendChild(collapseDiv);
+                accordion.appendChild(cardDiv);
             }
         }
     }
