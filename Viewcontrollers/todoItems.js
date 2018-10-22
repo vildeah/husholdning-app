@@ -1,7 +1,6 @@
 ViewControllers.TodoItems = (function() {
     return {
-        renderCards: function() {
-            
+        renderCards: function() {          
             let todoItems = ModelControllers.TodoItems.getAll();
             let accordion = document.getElementById('accordion');
             while (accordion.firstChild) {
@@ -51,13 +50,26 @@ ViewControllers.TodoItems = (function() {
             }
         },
 
+        shiftActiveDifficultyButton: function (buttonNumber) {
+           for (let i = 1; i < 6; i++) {
+               document.getElementById('addTodoItem__modal--difficultyBtn-' + i).classList.remove('active');
+           }
+           document.getElementById('addTodoItem__modal--difficultyBtn-' + buttonNumber).classList.add('active');
+        },
+
         saveAddTodoItem: function () {
             let name = document.getElementById('addTodoItem__modal--name').value;
             let description = document.getElementById('addTodoItem__modal--description').value;
-            let newItem = ModelControllers.TodoItems.add({name: name, description: description});
-            ViewControllers.TodoItems.renderCards();
-
-        
+            let selectedDifficultyBtn;
+            for (let i = 1; i < 6; i++) {
+                let difficultyBtn = document.getElementById('addTodoItem__modal--difficultyBtn-' + i);
+                if (difficultyBtn.classList.contains('active')) {
+                    selectedDifficultyBtn = difficultyBtn;
+                }
+            }
+            let difficulty = parseInt(selectedDifficultyBtn.innerText) - 1;
+            let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
+            ViewControllers.TodoItems.renderCards();        
         }
 
     }
