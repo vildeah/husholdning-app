@@ -19,7 +19,7 @@ ViewControllers.TodoItems = (function() {
                 h5.classList.add('mb-0');
 
                 let collapseBtn = document.createElement('button');
-                collapseBtn.classList.add('btn', 'btn-link', 'collapse-header');
+                collapseBtn.classList.add('btn', 'btn-link', 'collapse-header', 'todoItem-header');
                 collapseBtn.setAttribute('data-toggle', 'collapse');
                 collapseBtn.setAttribute('data-target', '#collapse' + i);
                 collapseBtn.setAttribute('aria-expanded', false);
