@@ -52,6 +52,10 @@
 	color: #6B7A8F;
 }
 
+.card-body {
+	background-color: green;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;

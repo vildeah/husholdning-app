@@ -1,6 +1,7 @@
 ViewControllers.TodoItems = (function() {
     return {
         renderCards: function() {
+            
             let todoItems = ModelControllers.TodoItems.getAll();
             let accordion = document.getElementById('accordion');
             while (accordion.firstChild) {
@@ -48,7 +49,17 @@ ViewControllers.TodoItems = (function() {
                 cardDiv.appendChild(collapseDiv);
                 accordion.appendChild(cardDiv);
             }
+        },
+
+        saveAddTodoItem: function () {
+            let name = document.getElementById('addTodoItem__modal--name').value;
+            let description = document.getElementById('addTodoItem__modal--description').value;
+            let newItem = ModelControllers.TodoItems.add({name: name, description: description});
+            ViewControllers.TodoItems.renderCards();
+
+        
         }
+
     }
     
 })();
