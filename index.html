@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div id="area__to-do" class="area">
-					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTodoItemModal">
+					<button type="button" class="btn btn-success" onclick="ViewControllers.TodoItems.renderAddTodoItemModal()">
 						Legg til gjøremål
 					</button>
 						
@@ -91,7 +91,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Avbryt</button>
-									<button type="button" class="btn btn-primary" onclick="ViewControllers.TodoItems.saveAddTodoItem()" data-dismiss="modal">Lagre</button>
+									<button type="button" class="btn btn-primary" id="addTodoItem__modal--saveBtn">Lagre</button>
 								</div>
 							</div>
 						</div>
