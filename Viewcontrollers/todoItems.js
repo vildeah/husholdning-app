@@ -25,12 +25,13 @@ ViewControllers.TodoItems = (function() {
                 collapseBtn.setAttribute('aria-expanded', false);
                 collapseBtn.setAttribute('aria-controls', 'collapse'+ i);
                 collapseBtn.innerHTML = todoItems[i].name.get();
-           /*     let pointSpan = document.createElement('span');
-                pointSpan.innerHTML = todoItems[i].points.get().toString();
-                pointSpan.classList.add('float-right');*/
 
-               // collapseBtn.appendChild(pointSpan);
+                let editBtn = document.createElement('i');
+                editBtn.classList.add('fas', 'fa-pen', 'float-right', 'todoItem-editBtn');
+                editBtn.setAttribute('value', todoItems[i].id.get());
+
                 h5.appendChild(collapseBtn);
+                h5.appendChild(editBtn);
                 cardHeader.appendChild(h5);
 
                 let collapseDiv = document.createElement('div');
@@ -48,11 +49,38 @@ ViewControllers.TodoItems = (function() {
                 cardDiv.appendChild(collapseDiv);
                 accordion.appendChild(cardDiv);
             }
+
+            let editBtns = document.getElementsByClassName('todoItem-editBtn');
+            for (let i = 0; i < editBtns.length; i++) {
+                editBtns[i].onclick = function () {
+                    let todoItemId = parseInt(editBtns[i].getAttribute('value'));
+                    ViewControllers.TodoItems.renderEditTodoItemModal(ModelControllers.TodoItems.getById(todoItemId));
+                }
+            }
+        },
+
+        renderEditTodoItemModal: function (todoItem) {
+            let modal = document.getElementById('todoItem__modal');
+            modal.querySelector('#todoItem__modal--title').innerText = 'Redigér gjøremål';
+            modal.querySelector('#todoItem__modal--name').value = todoItem.name.get();
+            modal.querySelector('#todoItem__modal--description').value = todoItem.description.get();
+
+            for (let i = 1; i < 6; i++) {
+                modal.querySelector('#todoItem__modal--difficultyBtn-' + i).classList.remove('active');
+            }
+            modal.querySelector('#todoItem__modal--difficultyBtn-' + (todoItem.difficulty.get() + 1)).classList.add('active');
+
+            modal.querySelector('#todoItem__modal--saveBtn').onclick = function () {
+
+            }
+
+            $(modal).modal('show');
         },
 
         renderAddTodoItemModal: function () {
-            let modal = document.getElementById('addTodoItemModal');
-            $(modal).modal('show');
+            let modal = document.getElementById('todoItem__modal');
+            modal.querySelector('#todoItem__modal--title').innerText = 'Legg til gjøremål';
+           
             let forms = modal.getElementsByClassName('form-control');
             for (let i = 0; i < forms.length; i++) {
                 forms[i].value = '';
@@ -60,44 +88,50 @@ ViewControllers.TodoItems = (function() {
             }
 
             for (let i = 1; i < 6; i++) {
-                modal.querySelector('#addTodoItem__modal--difficultyBtn-' + i).classList.remove('active');
+                modal.querySelector('#todoItem__modal--difficultyBtn-' + i).classList.remove('active');
             }
 
-            modal.querySelector('#addTodoItem__modal--difficultyBtn-1').classList.add('active');
+            modal.querySelector('#todoItem__modal--difficultyBtn-1').classList.add('active');
 
-            let saveButton = modal.querySelector('#addTodoItem__modal--saveBtn');
+            let saveButton = modal.querySelector('#todoItem__modal--saveBtn');
             saveButton.onclick = function () {
-                ViewControllers.TodoItems.saveAddTodoItem(modal);
+                ViewControllers.TodoItems.saveTodoItem(modal);
             }
+            $(modal).modal('show');
 
         },
 
         shiftActiveDifficultyButton: function (buttonNumber) {
            for (let i = 1; i < 6; i++) {
-               document.getElementById('addTodoItem__modal--difficultyBtn-' + i).classList.remove('active');
+               document.getElementById('todoItem__modal--difficultyBtn-' + i).classList.remove('active');
            }
-           document.getElementById('addTodoItem__modal--difficultyBtn-' + buttonNumber).classList.add('active');
+           document.getElementById('todoItem__modal--difficultyBtn-' + buttonNumber).classList.add('active');
         },
 
-        saveAddTodoItem: function (modal) {
+        saveTodoItem: function (modal, todoItem) {
             let validated = true;
-            let name = modal.querySelector('#addTodoItem__modal--name').value;
+            let name = modal.querySelector('#todoItem__modal--name').value;
             if (name.length < 1) {
                 validated = false;
-                modal.querySelector('#addTodoItem__modal--name').classList.add('is-invalid');
+                modal.querySelector('#todoItem__modal--name').classList.add('is-invalid');
             }
-            let description = modal.querySelector('#addTodoItem__modal--description').value;
+            let description = modal.querySelector('#todoItem__modal--description').value;
             let selectedDifficultyBtn;
             for (let i = 1; i < 6; i++) {
-                let difficultyBtn = modal.querySelector('#addTodoItem__modal--difficultyBtn-' + i);
+                let difficultyBtn = modal.querySelector('#todoItem__modal--difficultyBtn-' + i);
                 if (difficultyBtn.classList.contains('active')) {
                     selectedDifficultyBtn = difficultyBtn;
                 }
             }
             let difficulty = parseInt(selectedDifficultyBtn.innerText) - 1;
             if (validated) {
-                let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
-                ViewControllers.TodoItems.renderCards();
+                if (todoItem == undefined) {
+                    let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
+                    ViewControllers.TodoItems.renderCards();
+                } else {
+                    
+                }
+
                 $(modal).modal('hide');  
             }
         },

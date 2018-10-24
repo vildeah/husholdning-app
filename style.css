@@ -66,6 +66,10 @@
 	overflow: auto;
 }
 
+.todoItem-editBtn:hover {
+	cursor: pointer;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;
