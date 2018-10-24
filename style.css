@@ -56,6 +56,12 @@
 	background-color: green;
 }
 
+#accordion {
+	width: 1300px;
+	height: 600px;
+	overflow: auto;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;
