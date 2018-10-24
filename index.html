@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	</head>
 
 	<body class="coorgi-bg-light">
@@ -52,11 +53,11 @@
 					</button>
 						
 						<!-- Modal -->
-					<div class="modal fade" id="addTodoItemModal" tabindex="-1" role="dialog" aria-labelledby="addTodoItemModal" aria-hidden="true">
+					<div class="modal fade" id="todoItem__modal" tabindex="-1" role="dialog" aria-labelledby="addTodoItemModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLongTitle">Legg til gjøremål</h5>
+									<h5 class="modal-title" id="todoItem__modal--title"></h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 									</button>
@@ -66,24 +67,24 @@
 										<div class="form-group row">
 											<label class="col-sm-4">Navn</label>
 											<div class="col-sm-11 input-group">
-												<input type="text" id="addTodoItem__modal--name" class="form-control">
+												<input type="text" id="todoItem__modal--name" class="form-control">
 											</div>					
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-4">Beskrivelse</label>
 											<div class="col-sm-11 input-group">
-												<input type="text" id="addTodoItem__modal--description" class="form-control">
+												<input type="text" id="todoItem__modal--description" class="form-control">
 											</div>					
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-4">Anstrengelsesivå</label>
 											<div class="col-sm-9 input-group">
 												<div class="btn-group" role="group">
-													<button id="addTodoItem__modal--difficultyBtn-1" type="button" class="btn btn-outline-info active" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(1)">1</button>
-													<button id="addTodoItem__modal--difficultyBtn-2" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(2)">2</button>
-													<button id="addTodoItem__modal--difficultyBtn-3" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(3)">3</button>
-													<button id="addTodoItem__modal--difficultyBtn-4" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(4)">4</button>
-													<button id="addTodoItem__modal--difficultyBtn-5" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(5)">5</button>
+													<button id="todoItem__modal--difficultyBtn-1" type="button" class="btn btn-outline-info active" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(1)">1</button>
+													<button id="todoItem__modal--difficultyBtn-2" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(2)">2</button>
+													<button id="todoItem__modal--difficultyBtn-3" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(3)">3</button>
+													<button id="todoItem__modal--difficultyBtn-4" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(4)">4</button>
+													<button id="todoItem__modal--difficultyBtn-5" type="button" class="btn btn-outline-info" onclick="ViewControllers.TodoItems.shiftActiveDifficultyButton(5)">5</button>
 												</div>
 											</div>					
 										</div>
@@ -91,7 +92,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Avbryt</button>
-									<button type="button" class="btn btn-primary" id="addTodoItem__modal--saveBtn">Lagre</button>
+									<button type="button" class="btn btn-primary" id="todoItem__modal--saveBtn">Lagre</button>
 								</div>
 							</div>
 						</div>
