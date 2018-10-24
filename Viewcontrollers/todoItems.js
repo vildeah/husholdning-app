@@ -50,6 +50,28 @@ ViewControllers.TodoItems = (function() {
             }
         },
 
+        renderAddTodoItemModal: function () {
+            let modal = document.getElementById('addTodoItemModal');
+            $(modal).modal('show');
+            let forms = modal.getElementsByClassName('form-control');
+            for (let i = 0; i < forms.length; i++) {
+                forms[i].value = '';
+                forms[i].classList.remove('is-invalid');
+            }
+
+            for (let i = 1; i < 6; i++) {
+                modal.querySelector('#addTodoItem__modal--difficultyBtn-' + i).classList.remove('active');
+            }
+
+            modal.querySelector('#addTodoItem__modal--difficultyBtn-1').classList.add('active');
+
+            let saveButton = modal.querySelector('#addTodoItem__modal--saveBtn');
+            saveButton.onclick = function () {
+                ViewControllers.TodoItems.saveAddTodoItem(modal);
+            }
+
+        },
+
         shiftActiveDifficultyButton: function (buttonNumber) {
            for (let i = 1; i < 6; i++) {
                document.getElementById('addTodoItem__modal--difficultyBtn-' + i).classList.remove('active');
@@ -57,20 +79,29 @@ ViewControllers.TodoItems = (function() {
            document.getElementById('addTodoItem__modal--difficultyBtn-' + buttonNumber).classList.add('active');
         },
 
-        saveAddTodoItem: function () {
-            let name = document.getElementById('addTodoItem__modal--name').value;
-            let description = document.getElementById('addTodoItem__modal--description').value;
+        saveAddTodoItem: function (modal) {
+            let validated = true;
+            let name = modal.querySelector('#addTodoItem__modal--name').value;
+            if (name.length < 1) {
+                validated = false;
+                modal.querySelector('#addTodoItem__modal--name').classList.add('is-invalid');
+            }
+            let description = modal.querySelector('#addTodoItem__modal--description').value;
             let selectedDifficultyBtn;
             for (let i = 1; i < 6; i++) {
-                let difficultyBtn = document.getElementById('addTodoItem__modal--difficultyBtn-' + i);
+                let difficultyBtn = modal.querySelector('#addTodoItem__modal--difficultyBtn-' + i);
                 if (difficultyBtn.classList.contains('active')) {
                     selectedDifficultyBtn = difficultyBtn;
                 }
             }
             let difficulty = parseInt(selectedDifficultyBtn.innerText) - 1;
-            let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
-            ViewControllers.TodoItems.renderCards();        
-        }
+            if (validated) {
+                let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
+                ViewControllers.TodoItems.renderCards();
+                $(modal).modal('hide');  
+            }
+        },
+
 
     }
     
