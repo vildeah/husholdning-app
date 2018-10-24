@@ -47,14 +47,10 @@
 					</div>
 				</div>
 				<div id="area__to-do" class="area">
-					<div class="row" style="margin-top: 5em">
-						<div class="col-sm-4">
-
-						</div>
-						<button type="button" class="btn btn-success col-md-auto" data-toggle="modal" data-target="#addTodoItemModal">
-							Legg til gjøremål
-						</button>
-					</div>
+					<button type="button" class="btn btn-success" onclick="ViewControllers.TodoItems.renderAddTodoItemModal()">
+						Legg til gjøremål
+					</button>
+						
 						<!-- Modal -->
 					<div class="modal fade" id="addTodoItemModal" tabindex="-1" role="dialog" aria-labelledby="addTodoItemModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
@@ -95,7 +91,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Avbryt</button>
-									<button type="button" class="btn btn-primary" onclick="ViewControllers.TodoItems.saveAddTodoItem()" data-dismiss="modal">Lagre</button>
+									<button type="button" class="btn btn-primary" id="addTodoItem__modal--saveBtn">Lagre</button>
 								</div>
 							</div>
 						</div>
