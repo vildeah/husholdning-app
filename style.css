@@ -1,11 +1,11 @@
 
 /*Coorgi color scheme*/
 .coorgi-bg-light {
-	background-color: #dcc7aa!important;
+	background-color: cornsilk;
 }
 
 .coorgi-bg-yellow {
-	background-color: #F7C331!important;
+	background-color: rgb(247, 227, 49)!important;
 }
 
 .coorgi-bg-orange {
@@ -17,23 +17,23 @@
 }
 
 .coorgi-card-0 {
-	background-color: #FFC895!important;
+	background-color: aliceblue!important;
 }
 
 .coorgi-card-1 {
-	background-color: #FFBD82!important;
+	background-color: rgb(208, 233, 255)!important;
 }
 
 .coorgi-card-2 {
-	background-color: #FFAC62!important;
+	background-color: rgb(160, 211, 255)!important;
 }
 
 .coorgi-card-3 {
-	background-color: #FF9C42!important;
+	background-color: rgb(106, 184, 253)!important;
 }
 
 .coorgi-card-4 {
-	background-color: #FF800D!important;
+	background-color: rgb(66, 167, 255)!important;
 }
 
 .coorgi-text-light {
@@ -72,7 +72,7 @@
 	margin: 0px -15px 0px -15px;
 	padding-left:60px;
 	padding-right: 30px;
-	box-shadow: 0 20px 10px rgba(0,0,0,.05);
+	box-shadow: 0 5px 5px rgba(0,0,0,.05);
 	padding-bottom: 0;
 	padding-top: 5px;
 }
@@ -93,14 +93,25 @@
 	font-weight: 400;
 }
 
+.btn-success {
+	border: 5px!important;
+}
+
 /*Cards*/
 
-.collapse-header {
-	color: white!important;
+.todoItem-header {
+	color: rgb(255, 255, 255)!important;
 }
 
 .card{
-	box-shadow: 0 20px 10px rgba(0,0,0,.05);
+	/*box-shadow: 0 20px 10px rgba(0,0,0,.05);*/
+	background-color: rgb(255, 168, 97)!important; 
+}
+
+.card-body{
+	color: rgb(155, 96, 37);
+	font-size: 12px;
+	background-color: rgb(255, 232, 211);
 }
 
 /*Misc*/
