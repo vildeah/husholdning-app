@@ -4,7 +4,16 @@
 
         let _add = this.add;
         this.add = function(configuration) {
-            return _add.call(this, configuration);
+            let points;
+            switch (configuration.difficulty) {
+                case 0: points = 5; break;
+                case 1: points = 10; break;
+                case 2: points = 15; break;
+                case 3: points = 20; break;
+                case 4: points = 25; break;
+            }
+            let newConfig = Object.assign({}, configuration, {points: points});
+            return _add.call(this, newConfig);
         };
 
         let _getById = this.getById;
@@ -16,6 +25,7 @@
         this.getAll = function() {
             return _getAll.call(this);
         };
+
     };
 
     TodoItemModelController.prototype = Object.create(ModelControllers.Abstract.prototype);

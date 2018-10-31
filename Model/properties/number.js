@@ -1,7 +1,7 @@
 Model.Properties.Number = (function (value) {
 
     let _value;
-    this.set = function() {
+    this.set = function(value) {
         if (_value !== value) {
             _value = value;
         }
