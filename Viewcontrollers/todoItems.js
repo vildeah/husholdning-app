@@ -71,7 +71,7 @@ ViewControllers.TodoItems = (function() {
             modal.querySelector('#todoItem__modal--difficultyBtn-' + (todoItem.difficulty.get() + 1)).classList.add('active');
 
             modal.querySelector('#todoItem__modal--saveBtn').onclick = function () {
-
+                ViewControllers.TodoItems.saveTodoItem(modal, todoItem);
             }
 
             $(modal).modal('show');
@@ -127,10 +127,12 @@ ViewControllers.TodoItems = (function() {
             if (validated) {
                 if (todoItem == undefined) {
                     let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
-                    ViewControllers.TodoItems.renderCards();
                 } else {
-                    
+                    todoItem.name.set(name);
+                    todoItem.description.set(description);
+                    todoItem.difficulty.set(difficulty);                  
                 }
+                ViewControllers.TodoItems.renderCards();
 
                 $(modal).modal('hide');  
             }
