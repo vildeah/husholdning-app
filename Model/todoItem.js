@@ -4,7 +4,7 @@ Model.TodoItem = function(configuration) {
     this.name = new Model.Properties.String(this.setProperty(configuration, 'name', ""));
     this.description = new Model.Properties.String(this.setProperty(configuration, 'description', ''));
     this.difficulty = new Model.Properties.Number(this.setProperty(configuration, 'difficulty', 0));
-    this.points = new Model.Properties.Number(this.setProperty(configuration, "points", 0));
+    this.points = new Model.Properties.Number(this.setProperty(configuration, 'points', 0));
 
 };
 Model.TodoItem.prototype = Object.create(Model.Abstract.prototype);

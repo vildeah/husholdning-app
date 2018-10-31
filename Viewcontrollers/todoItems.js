@@ -101,6 +101,8 @@ ViewControllers.TodoItems = (function() {
 
         },
 
+        
+
         shiftActiveDifficultyButton: function (buttonNumber) {
            for (let i = 1; i < 6; i++) {
                document.getElementById('todoItem__modal--difficultyBtn-' + i).classList.remove('active');
