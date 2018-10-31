@@ -30,8 +30,13 @@ ViewControllers.TodoItems = (function() {
                 editBtn.classList.add('fas', 'fa-pen', 'float-right', 'todoItem-editBtn');
                 editBtn.setAttribute('value', todoItems[i].id.get());
 
+                let deleteBtn = document.createElement('i');
+                deleteBtn.classList.add('fas', 'fa-trash-alt', 'float-right', 'todoItem-deleteBtn');
+                deleteBtn.setAttribute('value', todoItems[i].id.get());
+
                 h5.appendChild(collapseBtn);
                 h5.appendChild(editBtn);
+                h5.appendChild(deleteBtn);
                 cardHeader.appendChild(h5);
 
                 let collapseDiv = document.createElement('div');
@@ -56,6 +61,11 @@ ViewControllers.TodoItems = (function() {
                     let todoItemId = parseInt(editBtns[i].getAttribute('value'));
                     ViewControllers.TodoItems.renderEditTodoItemModal(ModelControllers.TodoItems.getById(todoItemId));
                 }
+            }
+
+            let deleteBtns = document.getElementsByClassName('todoItem-deleteBtn');
+            for (let i = 0; i < deleteBtns.length; i++) {
+                
             }
         },
 
