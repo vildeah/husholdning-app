@@ -34,9 +34,14 @@ ViewControllers.TodoItems = (function() {
                 deleteBtn.classList.add('fas', 'fa-trash-alt', 'float-right', 'todoItem-deleteBtn');
                 deleteBtn.setAttribute('value', todoItems[i].id.get());
 
+                let checkBtn = document.createElement('i');
+                checkBtn.classList.add('fas', 'fa-check', 'float-right', 'todoItem-checkBtn');
+                deleteBtn.setAttribute('value', todoItems[i].id.get());
+
                 h5.appendChild(collapseBtn);
                 h5.appendChild(editBtn);
                 h5.appendChild(deleteBtn);
+                h5.appendChild(checkBtn);
                 cardHeader.appendChild(h5);
 
                 let collapseDiv = document.createElement('div');

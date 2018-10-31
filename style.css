@@ -71,6 +71,14 @@
 	cursor: pointer;
 }
 
+.todoItem-deleteBtn:hover {
+	cursor: pointer;
+}
+
+.todoItem-checkBtn:hover {
+	cursor: pointer;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;
