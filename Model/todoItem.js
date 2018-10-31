@@ -6,6 +6,10 @@ Model.TodoItem = function(configuration) {
     this.difficulty = new Model.Properties.Number(this.setProperty(configuration, 'difficulty', 0));
     this.points = new Model.Properties.Number(this.setProperty(configuration, 'points', 0));
 
+    this.destruct = function() {
+		this.deleted = true;
+	}
+
 };
 Model.TodoItem.prototype = Object.create(Model.Abstract.prototype);
 Model.TodoItem.prototype.constructor = Model.TodoItem;

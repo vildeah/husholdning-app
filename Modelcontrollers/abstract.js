@@ -15,6 +15,12 @@ ModelControllers.Abstract = function (elementType) {
         return newElement;
     };
 
+    this.remove = function(Id) {
+		let element = _elements[Id];
+		element.destruct();
+		delete _elements[Id];
+	};
+
     this.getById = function(Id){
         return _elements[Id];
     }

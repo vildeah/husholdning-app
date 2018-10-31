@@ -65,8 +65,16 @@ ViewControllers.TodoItems = (function() {
 
             let deleteBtns = document.getElementsByClassName('todoItem-deleteBtn');
             for (let i = 0; i < deleteBtns.length; i++) {
-                
+                deleteBtns[i].onclick = function () {
+                    let todoItemId = parseInt(deleteBtns[i].getAttribute('value'));
+                    ViewControllers.TodoItems.deleteTodoItem(todoItemId);
+                }
             }
+        },
+
+        deleteTodoItem: function (todoItemId) {
+            ModelControllers.TodoItems.remove(todoItemId);
+            ViewControllers.TodoItems.renderCards();
         },
 
         renderEditTodoItemModal: function (todoItem) {

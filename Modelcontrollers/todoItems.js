@@ -16,6 +16,11 @@
             return _add.call(this, newConfig);
         };
 
+        let _remove = this.remove;
+		this.remove = function(Id) {
+			return _remove.call(this, Id)
+		}
+
         let _getById = this.getById;
         this.getById = function(Id) {
             return _getById.call(this, Id);
