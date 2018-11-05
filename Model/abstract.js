@@ -1,4 +1,10 @@
 Model.Abstract = function () {
+    this.deleted = false;
+
+    this.isDeleted = function() {
+		return this.deleted;
+	};
+
     this.setProperty = function (configuration, propertyName, defaultValue, modelController) {
         if (configuration.hasOwnProperty(propertyName)) {
             return configuration[propertyName];

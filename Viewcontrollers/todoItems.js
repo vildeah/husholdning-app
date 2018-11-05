@@ -1,6 +1,6 @@
 ViewControllers.TodoItems = (function() {
     return {
-        renderCards: function() {          
+        renderCards: function() {   
             let todoItems = ModelControllers.TodoItems.getAll();
             let accordion = document.getElementById('accordion');
             while (accordion.firstChild) {
