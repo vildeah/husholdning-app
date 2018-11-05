@@ -5,6 +5,11 @@ Model.TodoItem = function(configuration) {
     this.description = new Model.Properties.String(this.setProperty(configuration, 'description', ''));
     this.difficulty = new Model.Properties.Number(this.setProperty(configuration, 'difficulty', 0));
     this.points = new Model.Properties.Number(this.setProperty(configuration, 'points', 0));
+    this.status = new Model.Properties.Number(this.setProperty(configuration, 'status', 0));
+
+    /* Status:
+      0: not done
+      1: done */
 
     this.destruct = function() {
 		this.deleted = true;

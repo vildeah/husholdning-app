@@ -1,7 +1,7 @@
 ViewControllers.TodoItems = (function() {
     return {
         renderCards: function() {   
-            let todoItems = ModelControllers.TodoItems.getAll();
+            let todoItems = ModelControllers.TodoItems.getNotDoneItems();
             let accordion = document.getElementById('accordion');
             while (accordion.firstChild) {
                 accordion.removeChild(accordion.firstChild);
@@ -36,7 +36,7 @@ ViewControllers.TodoItems = (function() {
 
                 let checkBtn = document.createElement('i');
                 checkBtn.classList.add('fas', 'fa-check', 'float-right', 'todoItem-checkBtn');
-                deleteBtn.setAttribute('value', todoItems[i].id.get());
+                checkBtn.setAttribute('value', todoItems[i].id.get());
 
                 h5.appendChild(collapseBtn);
                 h5.appendChild(editBtn);
@@ -75,6 +75,25 @@ ViewControllers.TodoItems = (function() {
                     ViewControllers.TodoItems.deleteTodoItem(todoItemId);
                 }
             }
+
+            let checkBtns = document.getElementsByClassName('todoItem-checkBtn');
+            for (let i = 0; i < checkBtns.length; i++) {
+                checkBtns[i].onclick = function () {
+                    let todoItemId = parseInt(checkBtns[i].getAttribute('value'));
+                    ViewControllers.TodoItems.completeTodoItem(todoItemId);
+                }
+            }
+        },
+
+        completeTodoItem: function (todoItemId) {
+            let signedInMember = ModelControllers.Members.getSignedInMember();
+            let todoItem = ModelControllers.TodoItems.getById(todoItemId);
+            let todoItempoints = todoItem.points.get();
+            let memberPoints = signedInMember.points.get();
+            signedInMember.points.set(memberPoints + todoItempoints);
+            signedInMember.doneTodoItems.set(signedInMember.doneTodoItems.get().concat([todoItem]));
+            todoItem.status.set(1);
+            ViewControllers.TodoItems.renderCards();
         },
 
         deleteTodoItem: function (todoItemId) {

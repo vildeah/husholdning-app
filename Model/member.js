@@ -4,7 +4,8 @@ Model.Member = function (configuration) {
     this.name = new Model.Properties.String(this.setProperty(configuration, 'name', ""));
     this.assignedTodoItems = new Model.Properties.OneToManyReference(this, 'assignedTodoItems', 'member', this.setProperty(configuration, 'assignedTodoItems', [], ModelControllers.TodoItems));
     this.doneTodoItems = new Model.Properties.OneToManyReference(this, 'doneTodoItems', 'member', this.setProperty(configuration, 'doneTodoItems', [], ModelControllers.TodoItems));
-    this.points = new Model.Properties.Number(this.setProperty(configuration, 'points', 0));
+    this.points = new Model.Properties.Number(this.setProperty(configuration, 'points', 0));  
+    this.signedIn = new Model.Properties.Boolean(this.setProperty(configuration, 'signedIn', false));
 
     this.destruct = function() {
 		this.deleted = true;

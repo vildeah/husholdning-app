@@ -31,6 +31,17 @@
             return _getAll.call(this);
         };
 
+        this.getNotDoneItems = function() {
+            let _allItems = this.getAll();
+            let _notDoneItems = [];
+            for (i in _allItems) {
+                if(_allItems[i].status.get() == 0) {
+                    _notDoneItems.push(_allItems[i]);
+                }
+            }
+            return _notDoneItems;
+        }
+
     };
 
     TodoItemModelController.prototype = Object.create(ModelControllers.Abstract.prototype);
