@@ -112,6 +112,22 @@ ViewControllers.TodoItems = (function() {
             }
             modal.querySelector('#todoItem__modal--difficultyBtn-' + (todoItem.difficulty.get() + 1)).classList.add('active');
 
+            let selectElement = modal.querySelector('#todoItem__modal--selectAssigned');
+            while(selectElement.firstChild) {
+                selectElement.removeChild(selectElement.firstChild);
+            }
+            let blankOption = document.createElement('option');
+            blankOption.innerText = '(ingen)';
+            blankOption.value = 'noMember';
+            selectElement.appendChild(blankOption);
+            let members = ModelControllers.Members.getAll();
+            for (let i = 0; i < members.length; i++) {
+                let option = document.createElement('option');
+                option.innerText = members[i].name.get();
+                option.value = members[i].id.get();
+                selectElement.appendChild(option);
+            }
+
             modal.querySelector('#todoItem__modal--saveBtn').onclick = function () {
                 ViewControllers.TodoItems.saveTodoItem(modal, todoItem);
             }
@@ -168,13 +184,25 @@ ViewControllers.TodoItems = (function() {
                 }
             }
             let difficulty = parseInt(selectedDifficultyBtn.innerText) - 1;
+            let selectElement = modal.querySelector('#todoItem__modal--selectAssigned');
+            let selectedMember = null;
+            if (selectElement.value !== 'noMember') {
+                selectedMember = ModelControllers.Members.getById(selectElement.value);
+            }
+
             if (validated) {
                 if (todoItem == undefined) {
                     let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
+                    if (selectedMember !== null) {
+                        selectedMember.assignedTodoItems.set(selectedMember.assignedTodoItems.get().concat([newItem]));
+                    }    
                 } else {
                     todoItem.name.set(name);
                     todoItem.description.set(description);
-                    todoItem.difficulty.set(difficulty);                  
+                    todoItem.difficulty.set(difficulty);
+                    if (selectedMember !== null) {
+                        selectedMember.assignedTodoItems.set(selectedMember.assignedTodoItems.get().concat([todoItem]));
+                    }             
                 }
                 ViewControllers.TodoItems.renderCards();
 
