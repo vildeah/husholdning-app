@@ -38,6 +38,19 @@
                 }
             }
         }
+
+        this.todoItemRemoved = function(todoItemId) {
+            let _members = this.getAll();
+            for (i in _members) {
+                let _assignedTodoItems = _members[i].assignedTodoItems.get();
+                for (j in _assignedTodoItems) {
+                    if (todoItemId == _assignedTodoItems[j].id.get()) {
+                        let splicedArray = _assignedTodoItems.splice(j, 1);
+                        _members[i].assignedTodoItems.set(splicedArray);
+                    }
+                }
+            }
+        }
     };
     MemberModelController.prototype = Object.create(ModelControllers.Abstract.prototype);
     MemberModelController.prototype.constructor = MemberModelController;

@@ -18,6 +18,7 @@
 
         let _remove = this.remove;
 		this.remove = function(Id) {
+            ModelControllers.Members.todoItemRemoved(Id)
 			return _remove.call(this, Id)
 		}
 
