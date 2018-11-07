@@ -51,7 +51,24 @@
 					<button type="button" class="btn btn-success" onclick="ViewControllers.TodoItems.renderAddTodoItemModal()">
 						Legg til gjøremål
 					</button>
-						
+					<!-- Confirm Delete Modal-->
+					<div id="deleteItem__modal" class="modal fade in">
+						<div class="modal-dialog modal-confirm">
+							<div class="modal-content">
+								<div class="modal-header">              
+									<h4 class="modal-title">Er du sikker?</h4>  
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+								</div>
+								<div class="modal-body">
+									<p>Vil du virkelig slette dette gjøremålet?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-info" data-dismiss="modal">Avbryt</button>
+									<button id ="confirm__deletion__button" type="button" class="btn btn-danger">Slett</button>
+								</div>
+							</div>
+						</div>
+					</div>
 						<!-- Modal -->
 					<div class="modal fade" id="todoItem__modal" tabindex="-1" role="dialog" aria-labelledby="addTodoItemModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
