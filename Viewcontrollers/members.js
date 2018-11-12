@@ -1,12 +1,15 @@
 ViewControllers.Members = (function() {
     $(document).ready(function(){
-        document.getElementById('main-navigation__member-dropdown').innerText = ModelControllers.Members.getSignedInMember().name.get();
+        document.getElementById('main-navigation__member-dropdown').innerHTML = '<i class="fa fa-user"></i>&nbsp' + ModelControllers.Members.getSignedInMember().name.get();
     });
 
     return {
         renderChangeUserModal: function () {
             let modal = document.getElementById('members__modal--changeUser');
             let listGroup = modal.querySelector('.list-group');
+            while (listGroup.firstChild) {
+                listGroup.removeChild(listGroup.firstChild);
+            }
             let members = ModelControllers.Members.getAll();
             for (let i = 0; i < members.length; i++) {
                 if (members[i].id.get() !== ModelControllers.Members.getSignedInMember().id.get()) {
@@ -23,7 +26,7 @@ ViewControllers.Members = (function() {
             for (let i = 0; i < userButtons.length; i++) {
                 userButtons[i].onclick = function() {
                     ModelControllers.Members.signInById(userButtons[i].value);
-                    document.getElementById('main-navigation__member-dropdown').innerText = ModelControllers.Members.getSignedInMember().name.get();
+                    document.getElementById('main-navigation__member-dropdown').innerHTML = '<i class="fa fa-user"></i>&nbsp' + ModelControllers.Members.getSignedInMember().name.get();
                     $(modal).modal('hide');
                 }
             }

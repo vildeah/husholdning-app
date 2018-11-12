@@ -42,7 +42,8 @@
 						<div class="navbar-collapse collapse col-3">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle w-100" href="#" id="main-navigation__member-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+									<a class="nav-link dropdown-toggle w-100" href="#" id="main-navigation__member-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									</a>
 									<div class="dropdown-menu" aria-labelledby="main-navigation__member-dropdown">
 										<a id="member-dropdown--changeUser" class="dropdown-item" href="#" onclick="ViewControllers.Members.renderChangeUserModal()">Bytt bruker</a>
 										<a id="member-dropdown--editUser" class="dropdown-item" href="#">Redigér</a>
@@ -134,9 +135,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="row justify-content-center">
+					<div class="row">
 						<div class="col-5">
+							<h3>Skal gjøres</h3>
 							<div id="accordion" class="shadow p-3 mb-5 bg-white rounded"></div>
+						</div>
+						<div class="col-5">
+							<h3>Ting du har gjort</h3>
 						</div>
 					</div>
 				</div>
