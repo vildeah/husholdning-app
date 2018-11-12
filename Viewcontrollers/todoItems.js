@@ -231,7 +231,7 @@ ViewControllers.TodoItems = (function() {
             if (validated) {
                 if (todoItem == undefined) {
                     let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
-                    if (selectedMember !== undefined) {
+                    if (selectedMember !== null) {
                         selectedMember.assignedTodoItems.set(selectedMember.assignedTodoItems.get().concat([newItem]));
                     }    
                 } else {
