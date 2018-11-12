@@ -5,6 +5,10 @@ ViewControllers.TodoItems = (function() {
             accordion.removeChild(accordion.firstChild);
         }
 
+        if (todoItems.length <= 0) {
+            includeButtons ? accordion.innerText = 'Er alt skinnende rent? Coorgi skeptisk.' : accordion.innerText = 'Ingenting foreløpig. Coorgi misfornøyd.';
+        }
+
         for (let i = 0; i < todoItems.length; i++) {
             let id = Core.generateAutoNumber();
             let cardDiv = document.createElement('div');
@@ -115,6 +119,7 @@ ViewControllers.TodoItems = (function() {
             signedInMember.doneTodoItems.set(signedInMember.doneTodoItems.get().concat([todoItem]));
             todoItem.status.set(1);
             ViewControllers.TodoItems.renderCards();
+            document.getElementById('point-badge').innerText = ModelControllers.Members.getSignedInMember().points.get();
         },
 
         deleteTodoItem: function (todoItemId) {

@@ -41,6 +41,9 @@
 
 						<div class="navbar-collapse collapse col-3">
 							<ul class="navbar-nav mr-auto">
+								<li class="nav-item">
+									<div class="coorgi-badge" id="point-badge"></div>
+								</li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle w-100" href="#" id="main-navigation__member-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									</a>
@@ -133,18 +136,19 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-5 mt-4 ml-5">
+						<div class="col-4 mt-4 ml-5 mr-2">
 							<h3 class="mb-4">Skal gjøres
 								<button type="button" class="btn btn-success float-right" onclick="ViewControllers.TodoItems.renderAddTodoItemModal()">
 									Legg til gjøremål
 								</button>
 							</h3>
-
 							<div id="accordion" class="accordion shadow p-3 mb-5 bg-white rounded"></div>
 						</div>
-						<div class="col-5 mt-4 ml-5">
+						<div class="col-4 mt-4 ml-2">
 							<h3 class="mb-4">Ting du har gjort den siste uken</h3>
 							<div class="accordion shadow p-3 mb-5 bg-white rounded" id="doneTodoItems--accordion"></div>
+						</div>
+						<div class="col-3">
 						</div>
 					</div>
 				</div>

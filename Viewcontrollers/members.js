@@ -1,6 +1,7 @@
 ViewControllers.Members = (function() {
     $(document).ready(function(){
-        document.getElementById('main-navigation__member-dropdown').innerHTML = '<i class="fa fa-user"></i>&nbsp' + ModelControllers.Members.getSignedInMember().name.get();
+        document.getElementById('main-navigation__member-dropdown').innerHTML = '<i class="fa fa-user"></i>&nbsp' + ModelControllers.Members.getSignedInMember().name.get();   
+        document.getElementById('point-badge').innerText = ModelControllers.Members.getSignedInMember().points.get();
     });
 
     return {
@@ -28,6 +29,7 @@ ViewControllers.Members = (function() {
                     ModelControllers.Members.signInById(userButtons[i].value);
                     document.getElementById('main-navigation__member-dropdown').innerHTML = '<i class="fa fa-user"></i>&nbsp' + ModelControllers.Members.getSignedInMember().name.get();
                     ViewControllers.TodoItems.renderCards();
+                    document.getElementById('point-badge').innerText = ModelControllers.Members.getSignedInMember().points.get();
                     $(modal).modal('hide');
                 }
             }

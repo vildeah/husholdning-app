@@ -56,6 +56,18 @@
 	background-color: green;
 }
 
+.coorgi-badge {
+	font-size: 15pt;
+	font-weight: 400;
+	height: 40px;
+	width: 40px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle !important;
+	border-radius: 50%;
+	background: #F7C331;
+  }
+
 #accordion {
 	
 	min-width: 100%;
