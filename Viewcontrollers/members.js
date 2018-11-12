@@ -27,6 +27,7 @@ ViewControllers.Members = (function() {
                 userButtons[i].onclick = function() {
                     ModelControllers.Members.signInById(userButtons[i].value);
                     document.getElementById('main-navigation__member-dropdown').innerHTML = '<i class="fa fa-user"></i>&nbsp' + ModelControllers.Members.getSignedInMember().name.get();
+                    ViewControllers.TodoItems.renderCards();
                     $(modal).modal('hide');
                 }
             }
