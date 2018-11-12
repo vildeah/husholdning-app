@@ -33,7 +33,7 @@
             let _members = this.getAll();
             let _signedInMember;
             for (i in _members) {
-                if (_members[i].signedIn) {
+                if (_members[i].signedIn.get()) {
                     return _members[i];
                 }
             }
@@ -43,10 +43,11 @@
             let _members = this.getAll();
             for (i in _members) {
                 let _assignedTodoItems = _members[i].assignedTodoItems.get();
-                for (j in _assignedTodoItems) {
+                for (let j = 0; j <_assignedTodoItems.length; j++) {
                     if (todoItemId == _assignedTodoItems[j].id.get()) {
-                        let splicedArray = _assignedTodoItems.splice(j, 1);
-                        _members[i].assignedTodoItems.set(splicedArray);
+                        _assignedTodoItems.splice(j, 1);
+                        _members[i].assignedTodoItems.set(_assignedTodoItems);
+                        break;
                     }
                 }
             }

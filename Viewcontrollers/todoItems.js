@@ -1,6 +1,6 @@
 ViewControllers.TodoItems = (function() {
     return {
-        renderCards: function() {   
+        renderCards: function() {
             let todoItems = ModelControllers.TodoItems.getNotDoneItems();
             let accordion = document.getElementById('accordion');
             while (accordion.firstChild) {
@@ -96,6 +96,7 @@ ViewControllers.TodoItems = (function() {
             let todoItempoints = todoItem.points.get();
             let memberPoints = signedInMember.points.get();
             signedInMember.points.set(memberPoints + todoItempoints);
+            ModelControllers.Members.todoItemRemoved(todoItemId);
             signedInMember.doneTodoItems.set(signedInMember.doneTodoItems.get().concat([todoItem]));
             todoItem.status.set(1);
             ViewControllers.TodoItems.renderCards();
@@ -155,6 +156,23 @@ ViewControllers.TodoItems = (function() {
             }
 
             modal.querySelector('#todoItem__modal--difficultyBtn-1').classList.add('active');
+
+            
+            let selectElement = modal.querySelector('#todoItem__modal--selectAssigned');
+            while(selectElement.firstChild) {
+                selectElement.removeChild(selectElement.firstChild);
+            }
+            let blankOption = document.createElement('option');
+            blankOption.innerText = '(ingen)';
+            blankOption.value = 'noMember';
+            selectElement.appendChild(blankOption);
+            let members = ModelControllers.Members.getAll();
+            for (let i = 0; i < members.length; i++) {
+                let option = document.createElement('option');
+                option.innerText = members[i].name.get();
+                option.value = members[i].id.get();
+                selectElement.appendChild(option);
+            }
 
             let saveButton = modal.querySelector('#todoItem__modal--saveBtn');
             saveButton.onclick = function () {
