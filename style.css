@@ -59,7 +59,7 @@
 #accordion {
 	
 	min-width: 100%;
-	height: 30em;
+	max-height: 30em;
 	overflow: hidden;
 }
 
