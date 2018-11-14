@@ -44,7 +44,7 @@ ViewControllers.TodoItems = (function() {
                 checkBtn.setAttribute('value', todoItems[i].id.get());
 
                 let pointBadge = document.createElement('i');
-                pointBadge.classList.add('point-badge','badge', 'badge-secondary');
+                pointBadge.classList.add('point-badge', 'badge-pill', 'badge-warning');
                 pointBadge.innerHTML = todoItems[i].points.get();
                 
                 h5.appendChild(pointBadge);

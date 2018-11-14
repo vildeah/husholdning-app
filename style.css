@@ -66,6 +66,8 @@
 	vertical-align: middle !important;
 	border-radius: 50%;
 	background: #F7C331;
+	color: white;
+	box-shadow: rgb(163, 163, 163) 2px 2px 2px;
   }
 
 #accordion {
@@ -106,8 +108,9 @@
 }
 
 .point-badge {
-	background-color: rgb(231, 228, 45) !important; 
-	box-shadow: 4px 4px 2px rgb(255, 153, 0) !important;
+	color: white !important; 
+	box-shadow: 2px 2px 2px  grey; 
+	
 }
 
 /*Navigation*/
