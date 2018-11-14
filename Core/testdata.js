@@ -5,7 +5,7 @@ $(document).ready(function(){
     let todoItem4 = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: "Reparér hyllen på badet", description:'Må bruke lengre skruer, ellers sitter den ikke', difficulty: 3});
 
     let member1 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Bendik", assignedTodoItems: [], doneTodoItems: [], signedIn: true});
-    let member2 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Tankred", assignedTodoItems: [], doneTodoItems: [], signedIn: false});
-    let member3 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Nils Eivind", assignedTodoItems: [], doneTodoItems: [], signedIn: false});
-    let member4 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Danielini", assignedTodoItems: [], doneTodoItems: [], signedIn: false});
+    let member2 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Vilde", assignedTodoItems: [], doneTodoItems: [], signedIn: false});
+    let member3 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Thomas", assignedTodoItems: [], doneTodoItems: [], signedIn: false});
+    let member4 = ModelControllers.Members.add({id: Core.generateAutoNumber(), name: "Mamma", assignedTodoItems: [], doneTodoItems: [], signedIn: false});
 });
