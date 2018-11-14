@@ -36,13 +36,18 @@ ViewControllers.TodoItems = (function() {
                 editBtn.setAttribute('value', todoItems[i].id.get());
     
                 let deleteBtn = document.createElement('i');
-                deleteBtn.classList.add('fas', 'fa-trash-alt', 'float-right', 'todoItem-deleteBtn');
+                deleteBtn.classList.add('fas', 'fa-trash-alt','float-right', 'todoItem-deleteBtn');
                 deleteBtn.setAttribute('value', todoItems[i].id.get());
     
                 let checkBtn = document.createElement('i');
                 checkBtn.classList.add('fas', 'fa-check', 'float-right', 'todoItem-checkBtn');
                 checkBtn.setAttribute('value', todoItems[i].id.get());
-    
+
+                let pointBadge = document.createElement('i');
+                pointBadge.classList.add('point-badge','badge', 'badge-secondary');
+                pointBadge.innerHTML = todoItems[i].points.get();
+                
+                h5.appendChild(pointBadge);
                 h5.appendChild(editBtn);
                 h5.appendChild(deleteBtn);
                 h5.appendChild(checkBtn);

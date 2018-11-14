@@ -105,6 +105,11 @@
 	padding-top: 3%;
 }
 
+.point-badge {
+	background-color: rgb(231, 228, 45) !important; 
+	box-shadow: 4px 4px 2px rgb(255, 153, 0) !important;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;
