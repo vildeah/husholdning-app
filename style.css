@@ -91,6 +91,20 @@
 	cursor: pointer;
 }
 
+.todoItem-deleteBtn {
+	padding-top: 3%;
+	padding-right: 2%;
+}
+
+.todoItem-editBtn {
+	padding-top: 3%; 
+}
+
+.todoItem-checkBtn {
+	padding-right: 2%;
+	padding-top: 3%;
+}
+
 /*Navigation*/
 .navbar {
 	background-color: #fff;
