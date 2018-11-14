@@ -34,7 +34,7 @@
 									<a id="main-navigation__shopping-list" class="nav-link" href="#">Handleliste</a>
 								</li>
 								<li class="nav-item">
-									<a id="main-navigation__points" class="nav-link" href="#">Poengtavle</a>
+									<a id="main-navigation__points" class="nav-link" href="#" onclick="ViewControllers.Points.renderScoreBoard()">Poengtavle</a>
 								</li>
 							</ul>
 						</div>
@@ -159,7 +159,10 @@
 				</div>
 				<div id="area__points" class="area">
 					<div class="row">
-						<h1>Poengtavle</h1>
+						<div class="col-4 mt-4 ml-5 mr-2">
+							<h3 class="mb-4">Ledertavle</h3>
+							<ul class="list-group"></ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -207,6 +210,7 @@
 
 		<script type="text/javascript" src="Viewcontrollers/todoItems.js"></script>
 		<script type="text/javascript" src="Viewcontrollers/members.js"></script>
+		<script type="text/javascript" src="Viewcontrollers/points.js"></script>
 
 	</body>
 
