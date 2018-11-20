@@ -45,7 +45,7 @@ ViewControllers.Points = (function() {
                 let divWrapper = document.createElement('div');
                 divWrapper.classList.add('progress');
                 let progressElement = document.createElement('div');
-                progressElement.classList.add('progress-bar', 'progress-bar-striped');
+                progressElement.classList.add('progress-bar', 'progress-bar-striped', 'bg-success');
                 progressElement.setAttribute('role', 'progressbar');
                 let pointString = members[i].points.get().toString();
                 progressElement.style.width = pointString + '%';

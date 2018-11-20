@@ -30,6 +30,13 @@ ViewControllers.TodoItems = (function() {
             collapseBtn.setAttribute('aria-controls', 'collapse'+ id);
             collapseBtn.innerHTML = todoItems[i].name.get();
 
+            
+            let pointBadge = document.createElement('i');
+            pointBadge.classList.add('point-badge', 'badge-pill', 'badge-warning');
+            pointBadge.innerHTML = todoItems[i].points.get();
+            
+            h5.appendChild(pointBadge);
+
             if (includeButtons) {
                 let editBtn = document.createElement('i');
                 editBtn.classList.add('fas', 'fa-pen', 'float-right', 'todoItem-editBtn');
@@ -43,11 +50,6 @@ ViewControllers.TodoItems = (function() {
                 checkBtn.classList.add('fas', 'fa-check', 'float-right', 'todoItem-checkBtn');
                 checkBtn.setAttribute('value', todoItems[i].id.get());
 
-                let pointBadge = document.createElement('i');
-                pointBadge.classList.add('point-badge', 'badge-pill', 'badge-warning');
-                pointBadge.innerHTML = todoItems[i].points.get();
-                
-                h5.appendChild(pointBadge);
                 h5.appendChild(editBtn);
                 h5.appendChild(deleteBtn);
                 h5.appendChild(checkBtn);
@@ -63,7 +65,14 @@ ViewControllers.TodoItems = (function() {
 
             let cardBody = document.createElement('div');
             cardBody.classList.add('card-body');
-            cardBody.innerHTML = todoItems[i].description.get();
+            
+            let assignedMember = todoItems[i].assignedMember.get()[0];
+
+            let assignedHTML = '';
+            if (undefined !== assignedMember) {
+                assignedHTML = '</br>Tildelt ' + assignedMember.name.get();
+            } 
+            cardBody.innerHTML = todoItems[i].description.get() + assignedHTML;
 
             collapseDiv.appendChild(cardBody);
             cardDiv.appendChild(cardHeader);
@@ -243,6 +252,7 @@ ViewControllers.TodoItems = (function() {
                     let newItem = ModelControllers.TodoItems.add({id: Core.generateAutoNumber(), name: name, description: description, difficulty: difficulty});
                     if (selectedMember !== null) {
                         selectedMember.assignedTodoItems.set(selectedMember.assignedTodoItems.get().concat([newItem]));
+                        newItem.assignedMember.set([selectedMember]);
                     }    
                 } else {
                     todoItem.name.set(name);
@@ -250,6 +260,7 @@ ViewControllers.TodoItems = (function() {
                     todoItem.difficulty.set(difficulty);
                     if (selectedMember !== null) {
                         selectedMember.assignedTodoItems.set(selectedMember.assignedTodoItems.get().concat([todoItem]));
+                        todoItem.assignedMember.set([selectedMember]);
                     }             
                 }
                 ViewControllers.TodoItems.renderCards();
